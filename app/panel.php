@@ -94,9 +94,9 @@ if ($_SESSION['tecnico']==$tecnico1->getId()) {
                 <?php foreach ($airConditioners as $airConditioner): ?>
                     <tr>
                         <td><?php echo $airConditioner->getId(); ?></td>
-                        <td><?php echo $airConditioner->getPotencia(); ?> BTUs</td>
-                        <td><?php echo $airConditioner->getMarca(); ?></td>
-                        <td><?php echo $airConditioner->getAnoFabricacao(); ?></td>
+                        <td><?php echo $airConditioner->getCoolingCapacity(); ?> BTUs</td>
+                        <td><?php echo $airConditioner->getBrand(); ?></td>
+                        <td><?php echo $airConditioner->getManufactureYear; ?></td>
                         <td><?php echo $airConditioner->getInverter() ? "Sim" : "Não"; ?></td>
                         <td><?php echo $airConditioner->getlastCleaningDate(); ?></td>
                     </tr>
