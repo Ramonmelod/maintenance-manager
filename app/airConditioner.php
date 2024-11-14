@@ -24,15 +24,15 @@ class airConditioner{
         return $this->id;
     }
 
-    public function getPotencia() {
+    public function getCoolingCapacity() {
         return $this->coolingCapacity;
     }
 
-    public function getMarca() {
+    public function getBrand() {
         return $this->brand;
     }
 
-    public function getAnoFabricacao() {
+    public function getManufactureYear() {
         return $this->manufactureYear;
     }
 
@@ -48,15 +48,15 @@ class airConditioner{
     public function setId($id) {
         $this->id = $id;
     }
-    public function setPotencia($coolingCapacity) {
+    public function setCoolingCapacity($coolingCapacity) {
         $this->coolingCapacity = $coolingCapacity;
     }
 
-    public function setMarca($brand) {
+    public function setBrand($brand) {
         $this->brand = $brand;
     }
 
-    public function setAnoFabricacao($manufactureYear) {
+    public function setManufactureYear($manufactureYear) {
         $this->manufactureYear = $manufactureYear;
     }
 
@@ -69,7 +69,7 @@ class airConditioner{
     }
 
     // Método para exibir as informações do aparelho
-    public function exibirInformacoes() {
+    public function showInformations() {
         $inverterStatus = $this->inverter ? "Sim" : "Não";
         return "Id: " . $this->id . ", Potência: " . $this->coolingCapacity . " BTUs, Marca: " . $this->brand . 
                ", Ano de Fabricação: " . $this->manufactureYear . ", Inverter: " . $inverterStatus . 
