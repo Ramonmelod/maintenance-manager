@@ -5,6 +5,11 @@ include './getAirConditioner.php';
 // Variáveis de erro
 $erro = "";
 
+
+if(isset($_GET["error"])){ //  
+    $erro = $_GET["error"];
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Recebe os dados do formulário
     $usuario = $_POST['usuario'];

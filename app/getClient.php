@@ -3,26 +3,24 @@
 include './client.php';
 include './getAirConditioner.php';
 // Criando um objeto Client
-$cliente1 = new Client(1, "João Silva");
-$cliente1->addAirConditioner($airConditioner1);
-$cliente1->addAirConditioner($airConditioner2);
+$client1 = new Client(1, "João Silva");
+$client1->addAirConditioner($airConditioner1);
+$client1->addAirConditioner($airConditioner2);
 
-$cliente2 = new Client(2, "Pedro Alcântara");
-$cliente2->addAirConditioner($airConditioner3);
-$cliente2->addAirConditioner($airConditioner4);
+$client2 = new Client(2, "Pedro Alcântara");
+$client2->addAirConditioner($airConditioner3);
+$client2->addAirConditioner($airConditioner4);
 
-$cliente3 = new Client(3, "Gustavo Afonso");
-$cliente3->addAirConditioner($airConditioner5);
-$cliente3->addAirConditioner($airConditioner6);
+$client3 = new Client(3, "Gustavo Afonso");
+$client3->addAirConditioner($airConditioner5);
+$client3->addAirConditioner($airConditioner6);
 
-$cliente4 = new Client(4, "Jaison silva");
-$cliente4->addAirConditioner($airConditioner7);
-$cliente4->addAirConditioner($airConditioner8);
+$client4 = new Client(4, "Jaison silva");
+$client4->addAirConditioner($airConditioner7);
+$client4->addAirConditioner($airConditioner8);
 
-$cliente5 = new Client(5, "Maria Antônia");
-$cliente5->addAirConditioner($airConditioner9);
-$cliente5->addAirConditioner($airConditioner10);
+$client5 = new Client(5, "Maria Antônia");
+$client5->addAirConditioner($airConditioner9);
+$client5->addAirConditioner($airConditioner10);
 
-// Exibindo as informações do cliente
-var_dump($cliente1->getAirConditioner());
 ?>

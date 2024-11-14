@@ -2,17 +2,20 @@
 // Incluindo a classe Tecnico e Aparelho
 include './getTecnico.php';
 include './getAirConditioner.php';
+//include './getClient.php';
 
 
 session_start();
 
 if ($_SESSION['tecnico']==$tecnico1->getId()) {
-    $airConditioners = [$airConditioner1, $airConditioner2, $airConditioner3,$airConditioner4];
+    //$clients = [$airConditioner1, $airConditioner2, $airConditioner3,$airConditioner4];
+    $clients = [$airConditioner1, $airConditioner2, $airConditioner3,$airConditioner4];
 }else if ($_SESSION['tecnico']==$tecnico2->getId()) {
-        $airConditioners = [$airConditioner1, $airConditioner2];
+       // $clients = [$airConditioner1, $airConditioner2];
+        $clients = [$airConditioner1, $airConditioner2];
     
 }else{
-    header("Location: login.php");
+    header("Location: login.php?error=Sem autorização! Para acessar entre com suas credenciais");
     exit();
 }
 ?>
@@ -91,12 +94,12 @@ if ($_SESSION['tecnico']==$tecnico1->getId()) {
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($airConditioners as $airConditioner): ?>
+                <?php foreach ($clients as $airConditioner): ?>
                     <tr>
                         <td><?php echo $airConditioner->getId(); ?></td>
                         <td><?php echo $airConditioner->getCoolingCapacity(); ?> BTUs</td>
                         <td><?php echo $airConditioner->getBrand(); ?></td>
-                        <td><?php echo $airConditioner->getManufactureYear; ?></td>
+                        <td><?php echo $airConditioner->getManufactureYear(); ?></td>
                         <td><?php echo $airConditioner->getInverter() ? "Sim" : "Não"; ?></td>
                         <td><?php echo $airConditioner->getlastCleaningDate(); ?></td>
                     </tr>
