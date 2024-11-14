@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $_SESSION['tecnico'] = $tecnico1->getId();
 
-        header("Location: panel.php");
+        header("Location: technicianPanel.php");
         exit();
     }else if ($usuario === $tecnico2->getName() && $tecnico2->verificarSenha($senha)) {
         // Se as credenciais estiverem corretas, redireciona para o painel
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $_SESSION['tecnico'] = $tecnico2->getId();
 
-        header("Location: panel.php");
+        header("Location: technicianPanel.php");
         exit();
     } else {
         // Se o nome de usuário ou a senha estiverem incorretos

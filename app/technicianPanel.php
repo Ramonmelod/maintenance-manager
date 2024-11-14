@@ -1,23 +1,28 @@
 <?php
-// Incluindo a classe Tecnico e Aparelho
+// Incluindo as classes e objetos necessários
+include './getClient.php';
 include './getTecnico.php';
-include './getAirConditioner.php';
-//include './getClient.php';
-
 
 session_start();
 
-if ($_SESSION['tecnico']==$tecnico1->getId()) {
-    //$clients = [$airConditioner1, $airConditioner2, $airConditioner3,$airConditioner4];
-    $clients = [$airConditioner1, $airConditioner2, $airConditioner3,$airConditioner4];
-}else if ($_SESSION['tecnico']==$tecnico2->getId()) {
-       // $clients = [$airConditioner1, $airConditioner2];
-        $clients = [$airConditioner1, $airConditioner2];
-    
-}else{
-    header("Location: login.php?error=Sem autorização! Para acessar entre com suas credenciais");
+// Verificando se o técnico está logado
+if (!isset($_SESSION['tecnico'])) {
+    header("Location: login.php");
     exit();
 }
+
+// Obtendo o ID do técnico logado
+$loggedTechnicianId = $_SESSION['tecnico'];
+
+// Associando técnicos aos seus clientes
+$technicianClientsMap = [
+    $tecnico1->getId() => [$client1, $client2],
+    $tecnico2->getId() => [$client3, $client4, $client5]
+];
+
+// Obtendo os clientes do técnico logado
+$clients = $technicianClientsMap[$loggedTechnicianId] ?? [];
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +30,7 @@ if ($_SESSION['tecnico']==$tecnico1->getId()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel do Técnico</title>
+    <title>Clientes do Técnico</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -81,31 +86,35 @@ if ($_SESSION['tecnico']==$tecnico1->getId()) {
 <body>
 
     <div class="panel-container">
-        <h2>Painel do Técnico - Aparelhos de Ar Condicionado</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Capacidade de Resfriamento (BTUs)</th>
-                    <th>Marca</th>
-                    <th>Ano de Fabricação</th>
-                    <th>Inverter</th>
-                    <th>Última Limpeza</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($clients as $airConditioner): ?>
+        <h2>Clientes do Técnico</h2>
+        <?php if (!empty($clients)): ?>
+            <table>
+                <thead>
                     <tr>
-                        <td><?php echo $airConditioner->getId(); ?></td>
-                        <td><?php echo $airConditioner->getCoolingCapacity(); ?> BTUs</td>
-                        <td><?php echo $airConditioner->getBrand(); ?></td>
-                        <td><?php echo $airConditioner->getManufactureYear(); ?></td>
-                        <td><?php echo $airConditioner->getInverter() ? "Sim" : "Não"; ?></td>
-                        <td><?php echo $airConditioner->getlastCleaningDate(); ?></td>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Aparelhos</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach ($clients as $client): ?>
+                        <tr>
+                            <td><?php echo $client->getId(); ?></td>
+                            <td><?php echo $client->getNome(); ?></td>
+                            <td>
+                                <ul>
+                                    <?php foreach ($client->getAirConditioner() as $airConditioner): ?>
+                                        <li><?php echo $airConditioner->showInformations(); ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p>Nenhum cliente atribuído a este técnico.</p>
+        <?php endif; ?>
 
         <!-- Botão de Logout -->
         <form action="logout.php" method="POST">
