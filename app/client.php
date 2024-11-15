@@ -18,7 +18,7 @@ class Client {
         return $this->id;
     }
 
-    public function getNome() {
+    public function getName() {
         return $this->name;
     }
 
@@ -31,7 +31,7 @@ class Client {
         $this->id = $id;
     }
 
-    public function setNome($name) {
+    public function setName($name) {
         $this->name = $name;
     }
     public function addAirConditioner($airConditioner) {

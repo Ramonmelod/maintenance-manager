@@ -4,13 +4,15 @@ class Technician {
     // Atributos da classe
     private $id;
     private $name;
+    private $email;
     private $isPaidUser;
     private $password;
 
     // Construtor para inicializar os atributos
-    public function __construct($id, $name, $isPaidUser, $password) {
+    public function __construct($id, $name, $email, $isPaidUser, $password) {
         $this->id = $id;
         $this->name = $name;
+        $this->email = $email;
         $this->isPaidUser = $isPaidUser;
         $this->password = $password;  
     }
@@ -23,6 +25,9 @@ class Technician {
     public function getName() {
         return $this->name;
     }
+    public function getEmail() {
+        return $this->email;
+    }
 
     public function getIsPaidUser() {
         return $this->isPaidUser;
@@ -32,7 +37,28 @@ class Technician {
         return $this->password;
     }
 
-    // Método para verificar a password
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+    
+    public function setName($name) {
+        $this->name = $name;
+    }
+    
+    public function setEmail($email) {
+        $this->email = $email;
+    }
+    
+    public function setIsPaidUser($isPaidUser) {
+        $this->isPaidUser = $isPaidUser;
+    }
+    
+    public function setPassword($password) {
+        $this->password = $password;
+    }
+
+  
     public function checkPassword($password) {
         return $this->password === $password;
     }

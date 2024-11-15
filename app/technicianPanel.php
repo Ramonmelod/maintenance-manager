@@ -16,12 +16,12 @@ $loggedTechnicianId = $_SESSION['technician'];
 
 // Associando técnicos aos seus clientes
 $technicianClientsMap = [
-    $technician1->getId() => [$client1, $client2],
-    $technician2->getId() => [$client3, $client4, $client5]
+    $technicians[0]->getId() => [$client1, $client2],
+    $technicians[1]->getId() => [$client3, $client4, $client5]
 ];
 
 // Obtendo os clientes do técnico logado
-$clients = $technicianClientsMap[$loggedTechnicianId] ?? [];
+$clients = $technicianClientsMap[1] ?? []; //$technicianClientsMap[$loggedTechnicianId] ?? [];
 
 ?>
 
@@ -100,7 +100,7 @@ $clients = $technicianClientsMap[$loggedTechnicianId] ?? [];
                     <?php foreach ($clients as $client): ?>
                         <tr>
                             <td><?php echo $client->getId(); ?></td>
-                            <td><?php echo $client->getNome(); ?></td>
+                            <td><?php echo $client->getName(); ?></td>
                             <td>
                                 <ul>
                                     <?php foreach ($client->getAirConditioner() as $airConditioner): ?>

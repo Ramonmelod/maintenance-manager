@@ -13,30 +13,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Recebe os dados do formulário
     $usuario = $_POST['usuario'];
     $senha = $_POST['senha'];
+    
 
-    // Verifica se o nome de usuário corresponde ao nome do técnico e a senha está correta
-    if ($usuario === $technician1->getName() && $technician1->checkPassword($senha)) {
-        // Se as credenciais estiverem corretas, redireciona para o painel
-        session_start();
-        
-        $_SESSION['technician'] = $technician1->getId();
+    for ($i=0; $i<count($technicians);$i++){
 
-        header("Location: technicianPanel.php");
-        exit();
-    }else if ($usuario === $technician2->getName() && $technician2->checkPassword($senha)) {
-        // Se as credenciais estiverem corretas, redireciona para o painel
-        session_start();
-        
-        $_SESSION['technician'] = $technician2->getId();
+        if ($usuario === $technicians[$i]->getName() && $technicians[$i]->checkPassword($senha)) {
+            // Se as credenciais estiverem corretas, redireciona para o painel
+            session_start();
+            
+            $_SESSION['technician'] = $technicians[$i]->getId();
+    
 
+        } 
+    }
+
+    if(isset($_SESSION['technician'])){
         header("Location: technicianPanel.php");
         exit();
     } else {
         // Se o nome de usuário ou a senha estiverem incorretos
         $erro = "Usuário ou senha inválidos!";
     }
-
-
 }
 ?>
 
