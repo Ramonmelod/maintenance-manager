@@ -15,19 +15,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $senha = $_POST['senha'];
 
     // Verifica se o nome de usuário corresponde ao nome do técnico e a senha está correta
-    if ($usuario === $technician1->getName() && $technician1->verificarSenha($senha)) {
+    if ($usuario === $technician1->getName() && $technician1->checkPassword($senha)) {
         // Se as credenciais estiverem corretas, redireciona para o painel
         session_start();
         
-        $_SESSION['tecnico'] = $technician1->getId();
+        $_SESSION['technician'] = $technician1->getId();
 
         header("Location: technicianPanel.php");
         exit();
-    }else if ($usuario === $tecnico2->getName() && $tecnico2->verificarSenha($senha)) {
+    }else if ($usuario === $technician2->getName() && $technician2->checkPassword($senha)) {
         // Se as credenciais estiverem corretas, redireciona para o painel
         session_start();
         
-        $_SESSION['tecnico'] = $tecnico2->getId();
+        $_SESSION['technician'] = $technician2->getId();
 
         header("Location: technicianPanel.php");
         exit();

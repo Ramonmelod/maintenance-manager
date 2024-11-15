@@ -5,14 +5,14 @@ class Technician {
     private $id;
     private $name;
     private $isPaidUser;
-    private $senha;
+    private $password;
 
     // Construtor para inicializar os atributos
-    public function __construct($id, $name, $isPaidUser, $senha) {
+    public function __construct($id, $name, $isPaidUser, $password) {
         $this->id = $id;
         $this->name = $name;
         $this->isPaidUser = $isPaidUser;
-        $this->senha = $senha;  // A senha agora faz parte do objeto
+        $this->password = $password;  
     }
 
     // Métodos para acessar os atributos (getters)
@@ -28,15 +28,15 @@ class Technician {
         return $this->isPaidUser;
     }
 
-    public function getSenha() {
-        return $this->senha;
+    public function getPassword() {
+        return $this->password;
     }
 
-    // Método para verificar a senha
-    public function verificarSenha($senha) {
-        return $this->senha === $senha;
+    // Método para verificar a password
+    public function checkPassword($password) {
+        return $this->password === $password;
     }
-    public function exibirInformacoes() {
+    public function showInformation() {
         $paidStatus = $this->isPaidUser ? "Sim" : "Não";
         return "ID: " . $this->id . ", Nome: " . $this->name . ", Usuário Pagante: " . $paidStatus;
     }

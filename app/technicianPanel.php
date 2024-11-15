@@ -6,13 +6,13 @@ include './getTechnician.php';
 session_start();
 
 // Verificando se o técnico está logado
-if (!isset($_SESSION['tecnico'])) {
+if (!isset($_SESSION['technician'])) {
     header("Location: login.php");
     exit();
 }
 
 // Obtendo o ID do técnico logado
-$loggedTechnicianId = $_SESSION['tecnico'];
+$loggedTechnicianId = $_SESSION['technician'];
 
 // Associando técnicos aos seus clientes
 $technicianClientsMap = [
