@@ -15,23 +15,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $senha = $_POST['senha'];
     
 
-    for ($i=0; $i<count($technicians);$i++){
+    for ($i=0; $i<count($technicians);$i++){ //this for runs for all the technicians and the if tests the credentials
 
-        if ($usuario === $technicians[$i]->getName() && $technicians[$i]->checkPassword($senha)) {
-            // Se as credenciais estiverem corretas, redireciona para o painel
+        if ($usuario === $technicians[$i]->getEmail() && $technicians[$i]->checkPassword($senha)) {
+  
             session_start();
-            
             $_SESSION['technician'] = $technicians[$i]->getId();
-    
-
-        } 
+      } 
     }
 
     if(isset($_SESSION['technician'])){
         header("Location: technicianPanel.php");
         exit();
     } else {
-        // Se o nome de usuário ou a senha estiverem incorretos
+
         $erro = "Usuário ou senha inválidos!";
     }
 }
