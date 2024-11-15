@@ -1,6 +1,6 @@
 <?php
 // Definindo a classe Aparelho
-class airConditioner{
+class AirConditioner{
     // Atributos da classe
     private $id;
     private $coolingCapacity;

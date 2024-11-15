@@ -5,8 +5,10 @@ class Technician {
     private $id;
     private $name;
     private $email;
+    private $client=[];
     private $isPaidUser;
     private $password;
+
 
     // Construtor para inicializar os atributos
     public function __construct($id, $name, $email, $isPaidUser, $password) {
@@ -27,6 +29,9 @@ class Technician {
     }
     public function getEmail() {
         return $this->email;
+    }
+    public function getClient() {
+        return $this->client;
     }
 
     public function getIsPaidUser() {
@@ -49,6 +54,9 @@ class Technician {
     public function setEmail($email) {
         $this->email = $email;
     }
+    public function setClient($client) {
+        $this->client = $client;
+    }
     
     public function setIsPaidUser($isPaidUser) {
         $this->isPaidUser = $isPaidUser;
@@ -57,6 +65,10 @@ class Technician {
     public function setPassword($password) {
         $this->password = $password;
     }
+    public function addClient($client) {
+        $this->client[] = $client; 
+    }
+
 
   
     public function checkPassword($password) {

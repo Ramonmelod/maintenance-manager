@@ -1,6 +1,6 @@
 <?php
 include './getTechnician.php';
-include './getAirConditioner.php';
+include_once './getAirConditioner.php';
 
 $erro = "";
 

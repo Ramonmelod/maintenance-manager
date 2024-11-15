@@ -1,7 +1,7 @@
 <?php
 // Incluindo as classes e objetos necessários
-include './getClient.php';
-include './getTechnician.php';
+include_once './getClient.php';
+include_once './getTechnician.php';
 
 session_start();
 
@@ -14,14 +14,8 @@ if (!isset($_SESSION['technician'])) {
 // Obtendo o ID do técnico logado
 $loggedTechnicianId = $_SESSION['technician'];
 
-// Associando técnicos aos seus clientes
-$technicianClientsMap = [
-    $technicians[0]->getId() => [$client1, $client2],
-    $technicians[1]->getId() => [$client3, $client4, $client5]
-];
-
 // Obtendo os clientes do técnico logado
-$clients = $technicianClientsMap[1] ?? []; //$technicianClientsMap[$loggedTechnicianId] ?? [];
+$clients = $technicians[$loggedTechnicianId]->getClient() ?? [];
 
 ?>
 
