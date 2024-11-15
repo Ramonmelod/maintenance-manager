@@ -7,9 +7,9 @@ include './getAirConditioner.php';
 
 session_start();
 
-if ($_SESSION['tecnico']==$tecnico1->getId()) {
+if ($_SESSION['tecnico']==$technician1->getId()) {
     $airConditioners = [$airConditioner1, $airConditioner2, $airConditioner3,$airConditioner4];
-}else if ($_SESSION['tecnico']==$tecnico2->getId()) {
+}else if ($_SESSION['tecnico']==$technician2->getId()) {
         $airConditioners = [$airConditioner1, $airConditioner2];
     
 }else{

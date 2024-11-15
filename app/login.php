@@ -2,11 +2,10 @@
 include './getTechnician.php';
 include './getAirConditioner.php';
 
-// Variáveis de erro
 $erro = "";
 
 
-if(isset($_GET["error"])){ //  
+if(isset($_GET["error"])){ // receive the error variable from the url query  
     $erro = $_GET["error"];
 }
 
@@ -16,11 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $senha = $_POST['senha'];
 
     // Verifica se o nome de usuário corresponde ao nome do técnico e a senha está correta
-    if ($usuario === $tecnico1->getName() && $tecnico1->verificarSenha($senha)) {
+    if ($usuario === $technician1->getName() && $technician1->verificarSenha($senha)) {
         // Se as credenciais estiverem corretas, redireciona para o painel
         session_start();
         
-        $_SESSION['tecnico'] = $tecnico1->getId();
+        $_SESSION['tecnico'] = $technician1->getId();
 
         header("Location: technicianPanel.php");
         exit();

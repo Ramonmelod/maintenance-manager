@@ -16,8 +16,8 @@ $loggedTechnicianId = $_SESSION['tecnico'];
 
 // Associando técnicos aos seus clientes
 $technicianClientsMap = [
-    $tecnico1->getId() => [$client1, $client2],
-    $tecnico2->getId() => [$client3, $client4, $client5]
+    $technician1->getId() => [$client1, $client2],
+    $technician2->getId() => [$client3, $client4, $client5]
 ];
 
 // Obtendo os clientes do técnico logado
