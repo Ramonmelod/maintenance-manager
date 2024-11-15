@@ -1,6 +1,6 @@
 <?php
 // Definindo a classe Tecnico
-class Tecnico {
+class Technician {
     // Atributos da classe
     private $id;
     private $name;

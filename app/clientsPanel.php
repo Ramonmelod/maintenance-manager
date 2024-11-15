@@ -1,6 +1,6 @@
 <?php
 // Incluindo a classe Tecnico e Aparelho
-include './getTecnico.php';
+include './getTechnician.php';
 include './getAirConditioner.php';
 
 

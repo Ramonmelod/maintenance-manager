@@ -1,7 +1,7 @@
 <?php
 // Incluindo as classes e objetos necessários
 include './getClient.php';
-include './getTecnico.php';
+include './getTechnician.php';
 
 session_start();
 
@@ -117,8 +117,8 @@ $clients = $technicianClientsMap[$loggedTechnicianId] ?? [];
         <?php endif; ?>
 
         <!-- Botão de Logout -->
-        <form action="logout.php" method="POST">
-            <button type="submit" class="btn-logout">Sair</button>
+        <form action="login.php" method="GET">
+            <button type="submit" class="btn-logout">Sair</button> <!-- need to remove the session-->
         </form>
     </div>
 

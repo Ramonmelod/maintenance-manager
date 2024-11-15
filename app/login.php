@@ -1,5 +1,5 @@
 <?php
-include './getTecnico.php';
+include './getTechnician.php';
 include './getAirConditioner.php';
 
 // Variáveis de erro
