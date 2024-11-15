@@ -6,16 +6,15 @@ include './getAirConditioner.php';
 
 
 session_start();
+$loggedTechnicianId = $_SESSION['client'];
 
-if ($_SESSION['technician']==$technician1->getId()) {
-    $airConditioners = [$airConditioner1, $airConditioner2, $airConditioner3,$airConditioner4];
-}else if ($_SESSION['technician']==$technician2->getId()) {
-        $airConditioners = [$airConditioner1, $airConditioner2];
-    
-}else{
+if (!isset($_SESSION['client'])) {
     header("Location: login.php?error=Sem autorização! Para acessar entre com suas credenciais");
     exit();
 }
+
+
+$clientAirConditioners = $clients[$loggedTechnicianId]->getAirConditioner(); //this variable receive the list of airConditioners of the client
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +91,7 @@ if ($_SESSION['technician']==$technician1->getId()) {
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($airConditioners as $airConditioner): ?>
+                <?php foreach ($clientAirConditioners  as $airConditioner): ?>
                     <tr>
                         <td><?php echo $airConditioner->getId(); ?></td>
                         <td><?php echo $airConditioner->getCoolingCapacity(); ?> BTUs</td>
