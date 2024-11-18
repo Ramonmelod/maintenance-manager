@@ -22,7 +22,9 @@
 - **JavaScript**: Dynamic functionalities on the frontend.
 - **MySQL**: Database for storing information.
 
-## Installation
+## Get started
+
+- This project require some `PHP` server to run!
 
 1. Clone the repository:
    ```bash
@@ -33,7 +35,7 @@
    cd maintenance-manager
    ```
 3. Set up the MySQL database and update the credentials in the configuration file.
-4. Start a local server to run the application.
+4. Start yout `PHP` a local server to run the application.
 
 ## Usage
 
