@@ -3,13 +3,29 @@ include './getTechnician.php';
 include_once './getAirConditioner.php';
 
 
+session_start();
 
+// destroy any existent session to avoid unauthorized access
+if (session_status() === PHP_SESSION_ACTIVE) {
+    session_destroy();
+    // remove the session cookie of the browser
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(
+            session_name(),
+            '',
+            time() - 42000, // time to expire the cookie
+            $params["path"],
+            $params["domain"],
+            $params["secure"],
+            $params["httponly"]
+        );
+    }
+}
+
+// restart a clean session
 session_start();
 $erro = "";
-
-session_destroy();
-
-
 
 if(isset($_GET["error"])){ // receive the error variable from the url query  
     $erro = $_GET["error"];
