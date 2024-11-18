@@ -71,9 +71,7 @@ class AirConditioner{
     // Método para exibir as informações do aparelho
     public function showInformations() {
         $inverterStatus = $this->inverter ? "Sim" : "Não";
-        return "Id: " . $this->id . ", Potência: " . $this->coolingCapacity . " BTUs, Marca: " . $this->brand . 
-               ", Ano de Fabricação: " . $this->manufactureYear . ", Inverter: " . $inverterStatus . 
-               ", Última Limpeza: " . $this->lastCleaningDate;
+        return "Marca: " . $this->brand . ", Potência: " . $this->coolingCapacity . " BTUs, Última Limpeza: " . $this->lastCleaningDate. " Inverter: " . $inverterStatus;
     }
 }
 

@@ -92,19 +92,22 @@ $clients = $technicians[$loggedTechnicianId]->getClient() ?? [];
                 </thead>
                 <tbody>
                     <?php foreach ($clients as $client): ?>
-                        <tr>
-                            <td><?php echo $client->getId(); ?></td>
-                            <td><?php echo $client->getName(); ?></td>
-                            <td>
-                                <ul>
-                                    <?php foreach ($client->getAirConditioner() as $airConditioner): ?>
-                                        <li><?php echo $airConditioner->showInformations(); ?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </td>
-                        </tr>
+                        <?php 
+                        $airConditioners = $client->getAirConditioner();
+                        $rowspan = count($airConditioners); 
+                        ?>
+                        <?php foreach ($airConditioners as $index => $airConditioner): ?>
+                            <tr>
+                                <?php if ($index === 0): // Exibir informações do cliente apenas na primeira linha ?>
+                                    <td rowspan="<?php echo $rowspan; ?>"><?php echo $client->getId(); ?></td>
+                                    <td rowspan="<?php echo $rowspan; ?>"><?php echo $client->getName(); ?></td>
+                                <?php endif; ?>
+                                <td><?php echo $airConditioner->showInformations(); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
                     <?php endforeach; ?>
                 </tbody>
+
             </table>
         <?php else: ?>
             <p>Nenhum cliente atribuído a este técnico.</p>
