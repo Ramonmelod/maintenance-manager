@@ -68,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // this condition makes the access c
         $erro = "Usuário ou senha inválidos!";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -81,14 +82,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // this condition makes the access c
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #e6e8e9;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
+        .half-page{
+            position: relative;
+            left:-20%;
+            width: 60%;
+            height: 100%;
+            background-color:#3c5d75;
+        }
         .login-container {
-            background-color: #fff;
+            background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -99,6 +107,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // this condition makes the access c
             margin-bottom: 20px;
         }
         .login-container input {
+            position: relative;
+            left:-3%;
             width: 100%;
             padding: 10px;
             margin: 10px 0;
@@ -126,7 +136,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // this condition makes the access c
     </style>
 </head>
 <body>
-
+<!--<img src = "https://placehold.co/1200x1000"></img>-->
+<div class = 'half-page'></div>
     <div class="login-container">
         <h2>Login</h2>
 
